@@ -15,8 +15,7 @@ FROM python AS python-build-stage
 # Install Git
 RUN apt-get update && apt-get install -y git
 
-RUN pip install --upgrade pip
-RUN pip install wheel
+RUN pip install --upgrade pip setuptools wheel
 # Build dependencies
 COPY ./requirements.txt .
 RUN pip wheel --wheel-dir /usr/src/app/wheels \
