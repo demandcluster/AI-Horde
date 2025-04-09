@@ -15,7 +15,7 @@ blinker
 python-dotenv
 loguru
 bleach~=5.0.1
-alt-profanity-check
+alt-profanity-check=1.5.1
 better_profanity
 python-dateutil~=2.8.2
 redis~=4.3.5
