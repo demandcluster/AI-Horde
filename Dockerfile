@@ -15,12 +15,11 @@ FROM python AS python-build-stage
 # Install Git
 RUN apt-get update && apt-get install -y git
 
-RUN --mount=type=cache,target=/root/.cache pip install --upgrade pip
-RUN --mount=type=cache,target=/root/.cache pip install Cmake
+RUN pip install --upgrade pip
+RUN pip install Cmake
 # Build dependencies
 COPY ./requirements.txt .
-RUN --mount=type=cache,target=/root/.cache \
-  pip wheel --wheel-dir /usr/src/app/wheels \
+RUN pip wheel --wheel-dir /usr/src/app/wheels \
   -r requirements.txt --use-pep517
 
 
@@ -32,7 +31,7 @@ FROM python AS python-run-stage
 # git is required in the run stage because one dependency is not available in PyPI
 RUN apt-get update && apt-get install -y git
 
-RUN --mount=type=cache,target=/root/.cache pip install --upgrade pip
+RUN pip install --upgrade pip
 
 # Install dependencies
 COPY --from=python-build-stage /usr/src/app/wheels /wheels/
