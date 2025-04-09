@@ -14,7 +14,7 @@ def test_simple_alchemy(api_key: str, HORDE_URL: str, CIVERSION: str) -> None:
         "source_image": "https://github.com/Haidra-Org/AI-Horde/blob/main/icon.png?raw=true",
     }
     protocol = "http"
-    if HORDE_URL in ["dev.stablehorde.net", "stablehorde.net"]:
+    if HORDE_URL in ["horde.aivo.chat"]:
         protocol = "https"
     async_req = requests.post(f"{protocol}://{HORDE_URL}/api/v2/interrogate/async", json=async_dict, headers=headers)
     assert async_req.ok, async_req.text
@@ -64,4 +64,4 @@ def test_simple_alchemy(api_key: str, HORDE_URL: str, CIVERSION: str) -> None:
 
 
 if __name__ == "__main__":
-    test_simple_alchemy("2bc5XkMeLAWiN9O5s7bhfg", "dev.stablehorde.net", "0.1.1")
+    test_simple_alchemy("2bc5XkMeLAWiN9O5s7bhfg", "horde.aivo.chat", "0.1.1")

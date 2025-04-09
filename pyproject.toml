@@ -35,7 +35,7 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://aihorde.net"
+"Homepage" = "https://horde.aivo.chat"
 "Bug Tracker" = "https://github.com/Haidra-Org/AI-Horde"
 
 [tool.ruff]
