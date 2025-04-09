@@ -38,7 +38,7 @@ RUN --mount=type=cache,target=/root/.cache pip install --upgrade pip
 COPY --from=python-build-stage /usr/src/app/wheels /wheels/
 COPY ./requirements.txt .
 RUN pip install --no-cache-dir --no-index --find-links=/wheels/ \
-  -r requirements.txt --use-pep517\
+  -r requirements.txt \
 	&& rm -rf /wheels/
 
 WORKDIR /app
