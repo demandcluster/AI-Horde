@@ -16,7 +16,7 @@ FROM python AS python-build-stage
 RUN apt-get update && apt-get install -y git
 
 RUN pip install --upgrade pip
-RUN pip install Cmake
+RUN pip install wheel
 # Build dependencies
 COPY ./requirements.txt .
 RUN pip wheel --wheel-dir /usr/src/app/wheels \
