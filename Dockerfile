@@ -16,7 +16,7 @@ FROM python AS python-build-stage
 RUN apt-get update && apt-get install -y git
 
 RUN --mount=type=cache,target=/root/.cache pip install --upgrade pip
-RUN --mount=type=cache,target=/root/.cache pip instal wheel
+RUN --mount=type=cache,target=/root/.cache pip install wheel
 # Build dependencies
 COPY ./requirements.txt .
 RUN --mount=type=cache,target=/root/.cache \
